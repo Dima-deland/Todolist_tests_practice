@@ -16,7 +16,8 @@ public class TestTodolist {
     private WebDriver driver;
     private final String todolistName = "Todo_list_#1";
     private int countBefore, countAfter;
-
+    
+    // this method is used to count objects on pages by its sccSelectors, e.g. tolists and todos
     public int countElements(String sccSelectorValue) {
         List<WebElement> elementsArr = driver.findElements(By.cssSelector(sccSelectorValue));
         return elementsArr.size();
@@ -101,6 +102,7 @@ public class TestTodolist {
         WebElement destroyListButton = driver.findElement(By.xpath("//label[text()='Todo_list_#1']/following-sibling::button[@class='destroy']"));
         destroyListButton.click();
 
+        //following code is used to accept list removing on alert modal
         Alert alert = driver.switchTo().alert();
         alert.accept();
 
