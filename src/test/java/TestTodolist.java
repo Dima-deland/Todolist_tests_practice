@@ -70,7 +70,7 @@ public class TestTodolist {
     public void editTodo() {
         WebElement todoCheckbox = driver.findElement(By.xpath("//label[text()='Todo']/preceding-sibling::input[@class='toggle']"));
         todoCheckbox.click();
-        assertEquals("true", todoCheckbox.getDomProperty("checked"));
+        assertTrue(todoCheckbox.isSelected());
     }
 
     @Test(dependsOnMethods = "editTodo")
